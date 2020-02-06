@@ -17,3 +17,13 @@
 [[file:figure-plotabif-5.png]]
 
 
+Finally there are about 500 example mixtures for each number of
+components (2-5):
+
+#+BEGIN_SRC R
+> (mix.tab <- table(sapply(mix.dt$identifiers.list, length)))
+
+  2   3   4   5 
+583 536 583 508 
+> 
+#+END_SRC
