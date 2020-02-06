@@ -1,0 +1,19 @@
+** 6 Feb 2020
+
+- [[file:download.R]] gets zip files from
+  https://lftdi.camden.rutgers.edu/provedit/files/
+- [[file:single-source.R]] and [[file:mixture-regex.R]] are for testing regex.
+- [[file:figure-plotabif.R]] uses one regex for all fsa files, and plots
+  using seqinr:
+
+[[file:figure-plotabif-1.png]]
+
+[[file:figure-plotabif-2.png]]
+
+[[file:figure-plotabif-3.png]]
+
+[[file:figure-plotabif-4.png]]
+
+[[file:figure-plotabif-5.png]]
+
+
