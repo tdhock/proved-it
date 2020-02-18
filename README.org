@@ -1,3 +1,8 @@
+** 18 Feb 2020
+
+[[file:fsa_db.R]] parses fsa file names and saves the results in separate
+columns of [[file:fsa_db.csv]]
+
 ** 6 Feb 2020
 
 - [[file:download.R]] gets zip files from
