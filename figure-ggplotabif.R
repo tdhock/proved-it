@@ -118,26 +118,45 @@ mix.samples <- mix.dt[, data.table(
 
 single.dt <- match.dt[type=="single"]
 
-count.dt <- single.dt[mix.samples, .(
-  count=.N,
-  mix.i
-  ##mix.file=fsa.vec[mix.file.i]
-), on=.(project, sample.identifier), by=.EACHI][order(count)]
+one.mix <- mix.dt[1]
+one.samples <- mix.samples[one.mix, on="mix.i"]
+select.dt <- one.samples[, .(project, sample.identifier)]
+one.samples.info <- single.dt[select.dt, on=.(project, sample.identifier)]
+one.samples.info[, Q.num := as.numeric(ifelse(Q=="LAND", 0, Q))]
 
-## all samples are present.
-count.dt[count==0]
+ggplot()+
+  theme_bw()+
+  theme(panel.margin=grid::unit(0, "lines"))+
+  facet_grid(injection.seconds ~ sample.identifier)+
+  geom_point(aes(
+    template.nanograms, Q.num),
+    data=one.samples.info)+
+  scale_y_log10()
 
-mix.fsa <- fsa.vec[mix.dt[1, file.i]]
+file.i <- one.samples.info$file.i[300]
+mix.fsa <- fsa.vec[file.i]
 mix.fsa.data <- seqinr::read.abif(mix.fsa)
-
 seqinr::plotabif(mix.fsa.data, chanel=1)
-
 l.vec <- sapply(mix.fsa.data$Data, length)
 table(l.vec)
-
-n.channels <- 5
-png("figure-plotabif-%d.png", w=10, h=3, units="in", res=100)
-for(channel.i in 1:n.channels){
-  seqinr::plotabif(mix.fsa.data, chanel=channel.i)
+channel.names <- names(l.vec)[l.vec==max(l.vec)]
+channel.dt.list <- list()
+for(channel in channel.names){
+  RFU <- mix.fsa.data$Data[[channel]]
+  channel.dt.list[[channel]] <- data.table(
+    channel, Time=seq_along(RFU), RFU)
 }
+channel.dt <- do.call(rbind, channel.dt.list)
+
+gg <- ggplot()+
+  ggtitle(mix.fsa)+
+  theme_bw()+
+  theme(panel.margin=grid::unit(0, "lines"))+
+  facet_grid(channel ~ .)+
+  geom_line(aes(
+    Time, RFU),
+    data=channel.dt)
+
+png("figure-ggplotabif.png", w=15, h=4, units="in", res=100)
+print(gg)
 dev.off()
