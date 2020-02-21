@@ -98,6 +98,9 @@ i <- 9264
 fsa.vec[i]
 match.dt[i]
 
+match.dt[!kit %in% c("IP", "PP16"), fsa.vec[file.i] ]
+match.dt[kit %in% c("IP", "PP16")]
+
 ## There is supposed to be a GF kit type but I don't see any.
 grep("GF", fsa.vec, value=TRUE)
 

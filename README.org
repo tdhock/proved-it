@@ -1,5 +1,30 @@
 ** 21 Feb 2020
 
+[[https://lftdi.camden.rutgers.edu/wp-content/uploads/2019/12/PROVEDIt-Database-Naming-Convention-Laboratory-Methodsv1.pdf][PROVEDIt supplementary materials]] explains how to interpret data files
+names, protocols, ladders. In particular it explains that the GeneScan
+600 LIZ Size Standard v2.0 was used with the Identifiler Plus PCR Kit,
+and the Internal Lane Standard 600 was used with the PowerPlex 16 HS
+kit.
+
+From [[https://www.thermofisher.com/order/catalog/product/4408399?gclid=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE&ef_id=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE:G:s&s_kwcid=AL!3652!3!256916878506!b!!g!!#/4408399?gclid=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE&ef_id=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE:G:s&s_kwcid=AL!3652!3!256916878506!b!!g!!][fisher web page]]: GeneScan™ 600 LIZ® Size Standard v2.0 is
+designed for sizing DNA fragments in the 20-600 nucleotides range and
+provides 36 single-stranded labeled fragments of: 20, 40, 60, 80, 100,
+114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314,
+320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540,
+560, 580 and 600.
+
+[[https://www.promega.com/products/forensic-dna-analysis-ce/str-amplification/internal-lane-standard-600/?catNum=DG1071][From promega web page]]: The Internal Lane Standard 600 (ILS 600)
+consists of 22 bands ranging in size from 60bp to 600bp. Fragments of
+60–200bp are spaced at 20bp intervals, fragments of 200–500bp are
+spaced every 25 bases, and fragments of 500–600bp are spaced every 50
+bases. Fragments that are multiples of 100 bases have fluorescence
+intensities approximately twice that of other fragments to simplify
+size assignment.
+
+[[http://www.sjsu.edu/people/steven.lee/courses/c2/s2/STR%2520Data%2520Analysis%2520and%2520Interpretation%2520for%2520Forensic%2520Analysts.pdf][EPG manual]] describes Local Southern method for peak size calling.
+
+DATA.105 is the Internal Size Standard
+
 [[file:figure-one-mixture.R]] makes
 
 [[file:figure-one-mixture-ladder-zoom-out.png]]
