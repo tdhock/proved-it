@@ -1,3 +1,13 @@
+** 21 Feb 2020
+
+[[file:figure-one-mixture.R]] makes
+
+[[file:figure-one-mixture-ladder-zoom-out.png]]
+
+[[file:figure-one-mixture-ladder-zoom-in.png]]
+
+[[file:figure-one-mixture.png]]
+
 ** 20 Feb 2020
 
 [[file:figure-ggplotabif.R]] makes [[file:figure-ggplotabif.png]]
