@@ -16,8 +16,9 @@ for(zip.i in 1:nrow(zip.dt)){
       "%4d / %4d %s -> %s\n",
       zip.i, nrow(zip.dt),
       z$href, path))
-    download.file(z$href, path)
+    download.file(URLencode(z$href), path)
   }
   unzip(path)
 }
-system("mkdir data && mv PROVEDIt_* data")
+
+system("mkdir -p data && mv PROVEDIt_* data")

@@ -61,4 +61,6 @@ works_with_R(
   "rdatatable/data.table@c0052964694a4c618ab182aa474f924d40576d94",
   nc="2020.1.16",
   seqinr="3.6.1",
-  ggplot2="3.2.1")
+  ggplot2="3.2.1",
+  ggrepel="0.8.1")
+
