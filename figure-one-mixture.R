@@ -33,7 +33,7 @@ most.template.injection <- other.mix[
 other.mix[, selected := file.i %in% most.template.injection$file.i]
 ggplot()+
   theme_bw()+
-  theme(panel.margin=grid::unit(0, "lines"))+
+  theme(panel.spacing=grid::unit(0, "lines"))+
   facet_grid(injection.seconds ~ ., labeller=label_both)+
   geom_point(aes(
     template.nanograms, Q.num, color=selected),
@@ -81,7 +81,7 @@ gg <- ggplot()+
   ggtitle(paste0(
     "All ladder samples in ", ladder.dir))+
   theme_bw()+
-  theme(panel.margin=grid::unit(0, "lines"))+
+  theme(panel.spacing=grid::unit(0, "lines"))+
   facet_grid(channel ~ letter + numbers + capillary, labeller=label_both)+
   geom_line(aes(
     Time, RFU),
@@ -97,7 +97,7 @@ gg <- ggplot()+
   ggtitle(paste0(
     "All ladder samples in ", ladder.dir))+
   theme_bw()+
-  theme(panel.margin=grid::unit(0, "lines"))+
+  theme(panel.spacing=grid::unit(0, "lines"))+
   facet_grid(channel ~ letter + numbers + capillary, labeller=label_both)+
   geom_line(aes(
     Time, RFU),
@@ -112,7 +112,7 @@ gg <- ggplot()+
     "max template nanograms, different Q.num values\n",
     other.row$fsa))+
   theme_bw()+
-  theme(panel.margin=grid::unit(0, "lines"))+
+  theme(panel.spacing=grid::unit(0, "lines"))+
   facet_grid(channel ~ Q.num + file.i, labeller=label_both)+
   geom_line(aes(
     Time, RFU),

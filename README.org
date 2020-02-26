@@ -1,3 +1,44 @@
+** 26 Feb 2020
+
+[[file:figure-one-pair.R]] makes
+
+[[file:figure-one-pair.png]] and
+
+[[file:figure-one-pair-panels.png]]
+
+[[file:figure-alignment.R]]
+
+*** These single source samples look OK
+
+[[file:figure-alignment-nanograms-single-good.png]]
+
+*** Did some of these single source samples fail?
+
+[[file:figure-alignment-nanograms-single.png]]
+
+*** This mixture sample looks ok
+
+[[file:figure-alignment-nanograms-mixture.png]]
+
+*** Did some of these mixture samples fail? 
+
+In the first two plots below it looks like injection.seconds=5 is OK
+but 10 and 20 failed in two different ways.
+
+[[file:figure-alignment-nanograms-1.png]]
+
+[[file:figure-alignment-nanograms-wrap-1.png]]
+
+[[file:figure-alignment-nanograms-2.png]]
+
+[[file:figure-alignment-nanograms-wrap-2.png]]
+
+[[file:figure-alignment-nanograms-3.png]]
+
+[[file:figure-alignment-nanograms-4.png]]
+
+[[file:figure-alignment-nanograms-wrap-4.png]]
+
 ** 21 Feb 2020
 
 [[https://lftdi.camden.rutgers.edu/wp-content/uploads/2019/12/PROVEDIt-Database-Naming-Convention-Laboratory-Methodsv1.pdf][PROVEDIt supplementary materials]] explains how to interpret data files

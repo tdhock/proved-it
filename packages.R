@@ -62,5 +62,6 @@ works_with_R(
   nc="2020.1.16",
   seqinr="3.6.1",
   ggplot2="3.2.1",
-  ggrepel="0.8.1")
+  ggrepel="0.8.1",
+  PeakSegDisk="2019.9.27")
 
