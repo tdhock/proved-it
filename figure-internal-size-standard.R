@@ -109,8 +109,8 @@ gg <- ggplot()+
     data=pp16.after)
 print(gg)
 
-pp16.after[, non.neg := RFU-min(RFU)]
-pp16.after[, non.neg := ifelse(RFU<0, 0, RFU)]
+min.RFU <- min(pp16.after$RFU)
+pp16.after[, non.neg := RFU-min.RFU]
 range(pp16.after$non.neg)
 str(pp16.after)
 gg <- ggplot()+
@@ -146,8 +146,9 @@ PeakSegDisk::writeBedGraph(coverage.dt, coverage.bedGraph)
 
 fit <- PeakSegDisk::sequentialSearch_dir(pdir, n.peaks)
 
+fit$segments[, mean.RFU := mean+min.RFU]
 peak.dt <- fit$segments[status=="peak"][order(chromStart), .(
-  mean,
+  peak.RFU=mean.RFU,
   peakStart=chromStart+0.5,
   peakEnd=chromEnd+0.5,
   bases=ILS600)]
@@ -156,30 +157,40 @@ pp16.standard.after[, Time0 := Time]
 setkey(pp16.standard.after, Time, Time0)
 standard.in.peaks <- foverlaps(pp16.standard.after, peak.dt, nomatch=0L)
 max.dt <- standard.in.peaks[, .SD[RFU==max(RFU)], by=bases]
+fit$segments[, next.mean := c(mean.RFU[-1], NA)]
 gg <- ggplot()+
   theme_bw()+
   theme(panel.spacing=grid::unit(0, "lines"))+
   geom_line(aes(
-    Time, non.neg),
+    Time, RFU),
+    size=1,
     data=pp16.standard.after)+
   geom_segment(aes(
-    chromStart+0.5, mean,
-    xend=chromEnd+0.5, yend=mean),
-    color="green",
+    chromStart+0.5, mean.RFU,
+    xend=chromEnd+0.5, yend=mean.RFU),
+    color="red",
     data=fit$segments)+
+  geom_segment(aes(
+    chromStart+0.5, mean.RFU,
+    xend=chromStart+0.5, yend=next.mean),
+    color="red",
+    data=fit$segments[!is.na(next.mean)])+
   geom_text(aes(
     Time, RFU, label=bases),
     data=max.dt,
     vjust=-0.5,
-    color="green")
+    color="red")+
+  coord_cartesian(xlim=c(2500, 10000), ylim=c(min(pp16.standard.after$RFU), 1300))
+png("figure-internal-size-standard-segmentation.png", w=15, h=3, units="in", res=100)
 print(gg)
+dev.off()
 
 ggplot()+
   geom_text_repel(aes(
-    peakEnd-peakStart, mean, label=bases),
+    peakEnd-peakStart, peak.RFU, label=bases),
     data=peak.dt)+
   geom_point(aes(
-    peakEnd-peakStart, mean),
+    peakEnd-peakStart, peak.RFU),
     shape=1,
     data=peak.dt)+
   xlab("peak width")+
@@ -195,7 +206,7 @@ coverage.zoom <- foverlaps(peak.dt, pp16.standard.after, nomatch=0L)
 segs.dt <- fit$segments[order(chromStart), data.table(
   segStart=chromStart+0.5,
   segEnd=chromEnd+0.5,
-  mean)]
+  mean.RFU)]
 setkey(segs.dt, segStart, segEnd)
 segs.zoom <- foverlaps(peak.dt, segs.dt, nomatch=0L)
 segs.zoom[, showStart := ifelse(
@@ -208,26 +219,26 @@ gg <- ggplot()+
   ##facet_grid(. ~ bases, scales="free", space="free")+
   facet_wrap("bases", scales="free_x")+
   geom_point(aes(
-    Time, non.neg),
+    Time, RFU),
     shape=1,
     data=coverage.zoom)+
   geom_segment(aes(
-    showStart, mean,
-    xend=showEnd, yend=mean),
-    color="green",
+    showStart, mean.RFU,
+    xend=showEnd, yend=mean.RFU),
+    color="red",
     data=segs.zoom)+
   geom_vline(aes(
     xintercept=showEnd),
-    color="green",
+    color="red",
     data=segs.zoom[regionEnd!=showEnd])+
   scale_x_continuous(breaks=pp16.standard.after[, seq(0, max(Time), by=20)])+
   geom_point(aes(
     Time, RFU),
     data=max.dt)
+png("figure-internal-size-standard-segmentation-zoom.png", w=15, h=8, units="in", res=100)
 print(gg)
-peak.dt[bases==200]
+dev.off()
 
-max.dt[, Time := chromEnd]
 lin.fit <- lm(bases ~ Time, max.dt)
 lin.fit.dt <- data.table(t(coef(lin.fit)))
 pred.dt <- max.dt[, data.table(bases=seq(min(bases), max(bases)))]
@@ -276,4 +287,6 @@ gg <- ggplot()+
   geom_line(aes(
     Time, pois.pred, color=what),
     data=data.table(max.dt, what="model"))
+png("figure-internal-size-standard.png", w=15, h=8, units="in", res=100)
 print(gg)
+dev.off()

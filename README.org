@@ -1,3 +1,13 @@
+** 27 Feb 2020
+
+[[file:figure-internal-size-standard.R]] makes
+
+[[file:figure-internal-size-standard-segmentation.png]]
+
+[[file:figure-internal-size-standard-segmentation-zoom.png]]
+
+[[file:figure-internal-size-standard.png]]
+
 ** 26 Feb 2020
 
 [[file:figure-one-pair.R]] makes
@@ -41,11 +51,10 @@ but 10 and 20 failed in two different ways.
 
 ** 21 Feb 2020
 
-[[https://lftdi.camden.rutgers.edu/wp-content/uploads/2019/12/PROVEDIt-Database-Naming-Convention-Laboratory-Methodsv1.pdf][PROVEDIt supplementary materials]] explains how to interpret data files
-names, protocols, ladders. In particular it explains that the GeneScan
-600 LIZ Size Standard v2.0 was used with the Identifiler Plus PCR Kit,
-and the Internal Lane Standard 600 was used with the PowerPlex 16 HS
-kit.
+[[https://lftdi.camden.rutgers.edu/wp-content/uploads/2019/12/PROVEDIt-Database-Naming-Convention-Laboratory-Methodsv1.pdf][PROVEDIt supplementary materials]] explains how to interpret data files names,
+protocols, ladders. In particular it explains that the GeneScan 600
+LIZ Size Standard v2.0 was used with the Identifiler Plus PCR Kit, and
+the Internal Lane Standard 600 was used with the PowerPlex 16 HS kit.
 
 From [[https://www.thermofisher.com/order/catalog/product/4408399?gclid=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE&ef_id=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE:G:s&s_kwcid=AL!3652!3!256916878506!b!!g!!#/4408399?gclid=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE&ef_id=EAIaIQobChMIuaykzOrj5wIVkvhkCh3Z8gNGEAAYASAAEgI8e_D_BwE:G:s&s_kwcid=AL!3652!3!256916878506!b!!g!!][fisher web page]]: GeneScan™ 600 LIZ® Size Standard v2.0 is
 designed for sizing DNA fragments in the 20-600 nucleotides range and
