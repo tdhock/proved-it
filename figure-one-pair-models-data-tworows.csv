@@ -1,0 +1,3 @@
+sample,channel,Time,RFU,bases,relative.height,milli.bases,diff.prev,offset,chromStart,chromEnd,count,Sample
+mixture,4,2708,-29,90.0787401574803,0.0411348318837306,90078,,39,90039,90118,20,mixture
+four.parts,4,5106,-44,289.865470852018,-0.00274517475221701,289865,90,45,289820,289910,11,four.parts

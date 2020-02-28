@@ -4,6 +4,8 @@ file.vec <- c(
   one.part="data/PROVEDIt_1-Person Profiles_3130 20sec_IDPlus28cycles/20 sec/RD14-0003(022916LEA_20sec)/A06_RD14-0003-40d3a-0.0625IP-Q1.1_001.20sec.fsa",
   four.parts="data/PROVEDIt_1-Person Profiles_3130 20sec_IDPlus28cycles/20 sec/RD14-0003(030216LEA_20sec)/E01_RD14-0003-41d3a-0.0625IP-Q1.0_001.20sec.fsa")
 
+ladder.vec <- Sys.glob(file.path(dirname(file.vec), "*Ladder*"))
+
 fsa2dt <- function(mix.fsa){
   mix.fsa.data <- seqinr::read.abif(mix.fsa)
   l.vec <- sapply(mix.fsa.data$Data, length)
@@ -201,7 +203,7 @@ one.channel.segs <- one.channel[, {
     four.parts=6,
     mixture=8)
   fit <- PeakSegDisk::sequentialSearch_dir(
-    sdir, as.integer(n.peaks.vec[[Sample]]))
+    sdir, as.integer(n.peaks.vec[[paste(Sample)]]))
   fit$segments
 }, by=Sample]
 
@@ -213,11 +215,12 @@ gg <- ggplot()+
     chromStart/1000, count),
     size=1, alpha=0.5,
     data=one.channel)+
-  geom_segment(aes(
-    chromStart/1000, mean,
-    xend=chromEnd/1000, yend=mean),
+  geom_step(aes(
+    chromStart/1000, mean),
     color="red",
-    data=one.channel.segs)
+    data=one.channel.segs)+
+  xlab("bases")
+png("figure-one-pair-models.png", w=15, h=4, units="in", res=100)
 print(gg)
+dev.off()
 
-##TODO multi-modal.
