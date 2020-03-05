@@ -1,3 +1,12 @@
+** 4 Mar 2020
+
+[[file:figure-one-pair-models-joint-viz.R]] makes
+http://bl.ocks.org/tdhock/raw/7e36fc8a7492dae08302173914a8a193/
+
+[[file:figure-one-pair-models-joint.R]] makes
+
+[[file:figure-one-pair-models-joint.png]]
+
 ** 28 Feb 2020
 
 [[file:figure-one-pair-models.R]] makes a figure that shows that the

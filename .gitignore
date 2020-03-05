@@ -1,3 +1,4 @@
+*-viz
 .Rhistory
 *-data
 README.html
@@ -5,3 +6,4 @@ data
 library
 zip
 *~
+.httr-oauth
