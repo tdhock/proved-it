@@ -20,7 +20,7 @@ CSV version of data plotted above: [[file:figure-one-pair-models-data.csv]]
 [[http://media.invitrogen.com.edgesuite.net/downloads/instrument-software/cms_234317.zip][Identifiler Plus Analysis Files GMID]] files copied:
 
 - [[file:Identifier_Plus_Bins_v1X.txt]], [[file:Identifier_Plus_Bins_v1X.R]]
-- [[file:Identifier_Plus_Panels_v1X.txt]]
+- [[file:Identifier_Plus_Panels_v1X.txt]], [[file:Identifier_Plus_Panels_v1X.R]]
 - [[file:Identifier_Plus_Stutter_v1X.txt]]
 
 ** 27 Feb 2020
