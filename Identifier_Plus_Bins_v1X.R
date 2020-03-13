@@ -7,3 +7,5 @@ allele.dt <- marker.dt[, data.table::fread(
   csv, colClasses=list(character=1),
   col.names=c("allele", "bases", "V3", "V4", "virtual")
 ), by=Marker]
+table(allele.dt$V3)
+table(allele.dt$V4)
