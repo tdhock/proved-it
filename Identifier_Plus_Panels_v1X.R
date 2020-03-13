@@ -1,6 +1,8 @@
 panels.dt <- data.table::fread(
   "Identifier_Plus_Panels_v1X.txt", sep="\t", skip=4)
-some.names <- c("Marker", "color", "min.bases", "max.bases")
+some.names <- c(
+  "Marker", "color", "min.bases", "max.bases", "control.alleles",
+  "MarkerB", "comments", "ladder.alleles")
 names(panels.dt)[1:length(some.names)] <- some.names
 
 panels.dt[2][allele.dt, on="Marker", nomatch=0L]
